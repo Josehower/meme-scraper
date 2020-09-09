@@ -1,10 +1,12 @@
+[![Run on Repl.it](https://repl.it/badge/github/Josehower/meme-scraper)](https://repl.it/github/Josehower/meme-scraper)
+
 # Meme scraper
 
-this application allow you to download the first 10 memes alocated on https://memegen.link/examples, you can get this images on diferent versions accordingly to the commands that you use as imput
+this application allow you to download the first 10 memes allocated on memegen.link/examples, you can get this images on different versions so to the commands that you use as input
 
 ## Usage
 
-- to get the meme images whitout modification write on the command line
+- to get the meme images without changes write this on the command line
 
 `sh node index.js `
 
@@ -12,7 +14,7 @@ this application allow you to download the first 10 memes alocated on https://me
 
 `sh node index.js clean `
 
-- to get the meme with a custom text just add one or two inputs on the command. comands whit more that one word can be separated whit a "\_".
+- to get the meme with a custom text just add one or two inputs on the command. commands with more that one word could be separated with a "\_".
 
 `sh node index.js this_is_my_custom meme`
 
