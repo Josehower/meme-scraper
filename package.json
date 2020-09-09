@@ -1,0 +1,13 @@
+{
+  "name": "meme-scraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Josehower <josehowerupn@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cli-progress": "^3.8.2",
+    "image-downloader": "^4.0.1",
+    "node-fetch": "^2.6.1"
+  }
+}
