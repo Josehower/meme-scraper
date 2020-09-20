@@ -1,18 +1,19 @@
 const cliProgress = require('cli-progress');
-const bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-bar1.start(100, 0);
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const download = require('image-downloader');
 const fs = require('fs');
 
-bar1.update(15);
+const bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+
+bar1.start(100, 0); //---- process bar
+bar1.update(15); //---- process bar
 
 const text1 = process.argv[2] ? process.argv[2] : undefined;
 const text2 = process.argv[3] ? process.argv[3] : '_';
 let compoundText = text1 && text2 ? `${text1}/${text2}` : text1;
 
-bar1.update(20);
+bar1.update(20); //---- process bar
 
 const dateNow = new Date();
 
@@ -28,9 +29,9 @@ fs.mkdir(`./src`, function (err) {
   }
 });
 
-bar1.update(30);
+bar1.update(30); //---- process bar
 
-fs.mkdir(`./src/images${dateNow}`, function (err) {
+fs.mkdir(`./src/images_${dateNow}`, function (err) {
   if (err) {
     console.log(err);
   } else {
@@ -38,7 +39,7 @@ fs.mkdir(`./src/images${dateNow}`, function (err) {
   }
 });
 
-bar1.update(50);
+bar1.update(50); //---- process bar
 
 function getImages(html) {
   const $ = cheerio.load(html);
@@ -62,23 +63,23 @@ function getImages(html) {
   }
 }
 
-bar1.update(70);
+bar1.update(70); //---- process bar
 
 fetch('https://memegen.link/examples')
   .then((res) => res.text())
   .then((body) => getImages(body));
 
-function downloadImage(url, index, clean = false) {
-  const options = clean
+function downloadImage(url, index, noArg = false) {
+  const options = noArg
     ? {
         url: `https://api.memegen.link/images${url}`,
-        dest: `./src/images${dateNow}`, // will be saved to /path/to/dest/image.jpg
+        dest: `./src/images_${dateNow}/${index}.jpg`, // will be saved to /path/to/dest/image.jpg
       }
     : {
         url: `https://api.memegen.link/images/${url}${
           compoundText ? '/' + compoundText + '/' + index : ''
         }.jpg?preview=true&watermark=none`,
-        dest: `./src/images${dateNow}`, // will be saved to /path/to/dest/image.jpg
+        dest: `./src/images_${dateNow}/${index}.jpg`, // will be saved to /path/to/dest/image.jpg
       };
 
   download
@@ -89,5 +90,5 @@ function downloadImage(url, index, clean = false) {
     .catch((err) => console.error(err));
 }
 
-bar1.update(100);
-bar1.stop();
+bar1.update(100); //---- process bar
+bar1.stop(); //---- process bar
