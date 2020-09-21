@@ -8,7 +8,9 @@ this application allow you to download the first 10 memes allocated on memegen.l
 
 - to get the meme images without changes write this on the command line
 
-`sh node index.js `
+'''sh
+node index.js
+'''
 
 - to get the meme images clean without any text run the app like this
 
