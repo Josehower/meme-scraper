@@ -8,16 +8,14 @@ this application allow you to download the first 10 memes allocated on memegen.l
 
 - to get the meme images without changes write this on the command line
 
-'''sh
-node index.js
-'''
+`node index.js`
 
 - to get the meme images clean without any text run the app like this
 
-`sh node index.js clean `
+`node index.js clean `
 
 - to get the meme with a custom text just add one or two inputs on the command. commands with more that one word could be separated with a "\_".
 
-`sh node index.js this_is_my_custom meme`
+`node index.js this_is_my_custom meme`
 
 ![custom meme](custom_meme_example.jpg)
